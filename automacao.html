@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurar Cômodos</title>
+    <link rel="stylesheet" href="css/automacao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="control-header">
+        <h1>Configurar Cômodos</h1>
+        <button id="confirmarConfiguracoes" class="confirm-btn">
+            <i class="fas fa-check"></i> Confirmar
+        </button>
+    </header>
+    
+    <div id="comodos-container" class="comodos-list"></div>
+
+    <!-- Modal para configurar itens do cômodo -->
+    <div id="comodo-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Selecionar Itens</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Itens com checkboxes serão inseridos aqui -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-confirm">
+                    <i class="fas fa-check"></i> Confirmar seleção
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/automacao.js"></script>
+</body>
+</html>

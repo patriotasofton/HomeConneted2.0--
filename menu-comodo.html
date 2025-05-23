@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Residencial - SmartHome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/stylesComodoMenu.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Controle Residencial</h1>
+        
+        <div class="rooms-grid" id="roomsContainer">
+            <!-- Os cards dos cômodos serão inseridos aqui pelo JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Modal de Controle -->
+    <div class="modal" id="controlModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas" id="modalIcon"></i>
+                    <span id="modalRoomName"></span>
+                </div>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            
+            <div class="device-list" id="deviceList">
+                <!-- Os controles dos dispositivos serão inseridos aqui -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notificação -->
+    <div class="notification" id="notification"></div>
+    
+    <script src="js/ComodoMenu.js"></script>
+</body>
+</html>

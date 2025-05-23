@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - HommeConnected</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Homme<span>Connected</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                </ul>
+                    <a href="area-cliente.html" class="btn btn-outline">Minha Conta</a>
+                    <button id="logout-btn" class="btn btn-primary">Sair</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="client-area">
+        <div class="container">
+            <h1 class="page-title">Minha Conta</h1>
+            
+            <div class="client-dashboard">
+                <div class="client-sidebar">
+                    <div class="client-profile">
+                        <div class="client-avatar" id="client-avatar"></div>
+                        <h3 id="client-name"></h3>
+                        <p id="client-email"></p>
+                    </div>
+                    
+                    <nav class="client-menu">
+                        <ul>
+                            <li><a href="#meus-dados" class="active">Meus Dados</a></li>
+                            <li><a href="automacao.html">Itens Inteligente</a></li>
+                            <li><a href="comodo.html">Cadastrar comodo</a></li>
+                            <li><a href="#configuracoes">Configurações</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="client-content">
+                    <!-- Seção Meus Dados -->
+                    <div id="meus-dados" class="client-section active">
+                        <h2>Meus Dados</h2>
+                        <div class="client-info-card">
+                            <div class="info-row">
+                                <span class="info-label">Nome Completo:</span>
+                                <span class="info-value" id="client-fullname"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">CPF:</span>
+                                <span class="info-value" id="client-cpf"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">E-mail:</span>
+                                <span class="info-value" id="client-email-details"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Seção Meus Pedidos -->
+                    <div id="meus-pedidos" class="client-section">
+                        <h2>Meus Pedidos</h2>
+                        <div class="orders-list" id="orders-list">
+                            <!-- Pedidos serão carregados via JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Seção Meus Produtos -->
+                    <div id="meus-produtos" class="client-section">
+                        <h2>Meus Produtos</h2>
+                        <div class="client-products-grid" id="client-products">
+                            <!-- Produtos serão carregados via JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Seção Configurações -->
+                    <div id="configuracoes" class="client-section">
+                        <h2>Configurações</h2>
+                        <form id="settings-form">
+                            <div class="form-group">
+                                <label for="current-password">Senha Atual</label>
+                                <input type="password" id="current-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">Nova Senha</label>
+                                <input type="password" id="new-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirmar Nova Senha</label>
+                                <input type="password" id="confirm-password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Rodapé igual ao index.html -->
+    </footer>
+    <script src="js/auth.js"></script>
+    <script>
+        // Carrega os dados do cliente
+        async function loadClientData() {
+            const user = await api.getCurrentUser();
+            if (!user) {
+                window.location.href = 'login.html?redirect=area-cliente.html';
+                return;
+            }
+            
+            // Preenche dados básicos
+            document.getElementById('nome').textContent = user.nome;
+            document.getElementById('email').textContent = user.email;
+            
+            // Preenche detalhes
+            document.getElementById('nome').textContent = user.nome;
+            document.getElementById('cpf').textContent = user.cpf;
+            document.getElementById('email').textContent = user.email;
+            
+            // Avatar com iniciais
+            const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase();
+            document.getElementById('client-avatar').textContent = initials;
+            
+            // Navegação entre abas
+            document.querySelectorAll('.client-menu a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Atualiza menu ativo
+                    document.querySelector('.client-menu a.active').classList.remove('active');
+                    link.classList.add('active');
+                    
+                    // Mostra seção correspondente
+                    const target = link.getAttribute('href');
+                    document.querySelector('.client-section.active').classList.remove('active');
+                    document.querySelector(target).classList.add('active');
+                });
+            });
+            
+            // Botão de logout
+            document.getElementById('logout-btn').addEventListener('click', async () => {
+                await api.logoutUser();
+                window.location.href = 'index.html';
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            loadClientData();
+            updateCartIcon();
+        });
+    </script>
+</body>
+</html>

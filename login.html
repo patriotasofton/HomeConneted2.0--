@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HommeConnected</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Homme<span>Connected</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="cadastro.html" class="btn btn-primary">Cadastre-se</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="auth-page">
+        <div class="container">
+            <div class="auth-container">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="error-message" id="login-error"></div>
+                    <button type="submit" class="btn btn-primary form-submit">Entrar</button>
+                </form>
+                <div class="form-footer">
+                    <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+                    <p><a href="#">Esqueci minha senha</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+        const errorElement = document.getElementById('login-error');
+        
+        // Esconde mensagem de erro se estiver visível
+        errorElement.style.display = 'none';
+        
+        // Verificação mínima (apenas para exemplo)
+        if(email === '' || senha === '') {
+            errorElement.textContent = 'Por favor, preencha todos os campos';
+            errorElement.style.display = 'block';
+            return;
+        }
+        
+        // Simula login bem-sucedido
+        alert('Login realizado com sucesso!');
+        
+        // Redireciona para a área do cliente (ou cadastro da casa se preferir)
+        window.location.href = 'cadastro-casa.html';
+        
+        // Se quiser simular que o usuário não tem casa cadastrada:
+        // window.location.href = 'cadastro-casa.html';
+    });
+</script>
+</body>
+</html>

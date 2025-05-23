@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Cômodos - HommeConnected</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Homme<span>Connected</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="area-cliente.html" class="btn btn-outline">Minha Conta</a>
+                    <button id="logout-btn" class="btn btn-primary">Sair</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="comodos-page">
+        <div class="container">
+            <button class="back-button" onclick="goBack()" id="backButton">
+            <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1 class="page-title">Cadastrar Cômodos</h1>
+            
+            <div class="comodo-form">
+                <div class="form-group">
+                    <label for="comodo-type">Selecione o tipo de cômodo:</label>
+                    <select id="comodo-type">
+                        <option value="sala">Sala</option>
+                        <option value="quarto">Quarto</option>
+                        <option value="cozinha">Cozinha</option>
+                        <option value="banheiro">Banheiro</option>
+                        <option value="escritorio">Escritório</option>
+                        <option value="garagem">Garagem</option>
+                        <option value="lavanderia">Lavanderia</option>
+                        <option value="varanda">Varanda</option>
+                    </select>
+                    <button type="button" class="btn btn-primary" id="add-comodo">
+                        <i class="fas fa-plus"></i> Adicionar
+                    </button>
+                </div>
+                
+                <div class="selected-comodos" id="selected-comodos">
+                    <!-- Cômodos selecionados aparecerão aqui -->
+                </div>
+                
+                <button type="button" class="btn btn-success btn-block" id="save-comodos">
+                    <i class="fas fa-save"></i> Salvar Cômodos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/comodos.js"></script>
+</body>
+</html>

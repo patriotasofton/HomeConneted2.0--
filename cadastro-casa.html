@@ -1,0 +1,117 @@
+</html> cadastrar-casa.html: <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Casa - HommeConnected</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Homme<span>Connected</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                </ul>
+                
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="auth-page">
+        <div class="container">
+            <div class="auth-container">
+                <h2>Cadastrar Residência</h2>
+                <form id="house-form">
+                    <div class="form-group">
+                        <label for="rua">Nome da Rua</label>
+                        <input type="text" id="rua" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="numero_da_casa">Número</label>
+                        <input type="text" id="numero_da_casa" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select id="estado" required>
+                            <option value="">Selecione seu estado</option>
+                            <option value="AC">Estado Acre</option>
+                            <option value="AL">Estado Alagoas</option>
+                            <option value="AP">Estado Amapá</option>
+                            <option value="AM">Estado Amazonas</option>
+                            <option value="BA">Estado Bahia</option>
+                            <option value="CE">Estado Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Estado Goiás</option>
+                            <option value="MA">Estado Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Estado Pará</option>
+                            <option value="PB">Estado Paraíba</option>
+                            <option value="PR">Estado Paraná</option>
+                            <option value="PE">Estado Pernambuco</option>
+                            <option value="PI">Estado Piauí</option>
+                            <option value="RJ">Rio Janeiro</option>
+                            <option value="RN">Rio Norte</option>
+                            <option value="RS">Rio Sul</option>
+                            <option value="RO">Estado Rondônia</option>
+                            <option value="RR">Estado Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Estado Sergipe</option>
+                            <option value="TO">Estado Tocantins</option>
+                        </select>
+                    </div>
+
+                    <div class="error-message" id="house-error"></div>
+                    
+                    <button type="submit" class="btn btn-primary">Cadastrar Residência</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    document.getElementById('house-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const errorElement = document.getElementById('house-error');
+        
+        // Esconde mensagem de erro se estiver visível
+        errorElement.style.display = 'none';
+        
+        // Validação básica dos campos
+        const rua = document.getElementById('rua').value;
+        const numero = document.getElementById('numero_da_casa').value;
+        const cep = document.getElementById('cep').value;
+        const estado = document.getElementById('estado').value;
+        
+        if(!rua || !numero || !cep || !estado) {
+            errorElement.textContent = 'Por favor, preencha todos os campos';
+            errorElement.style.display = 'block';
+            return;
+        }
+        
+        // Simula o cadastro bem-sucedido
+        alert('Residência cadastrada com sucesso!');
+        
+        // Redireciona para a área do cliente
+        window.location.href = 'area-cliente.html';
+    });
+</script>
+</body>
+</html>

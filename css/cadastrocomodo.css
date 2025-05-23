@@ -1,0 +1,60 @@
+/* Estilos para página de cômodos */
+.comodos-page {
+    padding: 50px 0;
+}
+
+.comodo-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.comodo-form .form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#comodo-type {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.selected-comodos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.comodo-tag {
+    background: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comodo-tag button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+}
+
+.comodo-tag button:hover {
+    color: #e74c3c;
+}
+
+#save-comodos {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+}
